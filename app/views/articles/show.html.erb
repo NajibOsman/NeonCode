@@ -1,0 +1,32 @@
+
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<p>
+<strong>Title:</strong>
+<%= @article.title %>
+</p>
+
+<p>
+<strong>Content:</strong>
+<%= @article.content %>
+</p>
+
+<p>
+<strong>Image:</strong>
+<%= image_tag @article.picture_url.to_s %>
+</p>
+<!--
+  <ul class="collection with-header">
+<li class="collection-header"><h4> <%#= @article.comments.count %>Comments</h4></li>
+<%#= render @article.comments %>
+<h5>Add comments:</h5>
+<%#= render 'comments/form' %> -->
+
+
+<%= link_to 'Back', articles_path %>
+</div>
+<br>
+<hr>
+<hr>
+<hr>

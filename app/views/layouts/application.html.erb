@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Neoncode</title>
+<%= csrf_meta_tags %>
+
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+<div class="navbar-header">
+<a class="navbar-brand logo" href="/">Ne0nCode</a>
+</div>
+<ul class="nav navbar-nav  navbar-right">
+<li class="active"><a href="/">Home</a></li>
+
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="#">Design</a></li>
+<li><a href="#">Front-End Development</a></li>
+<li><a href="#">Back-End Development</a></li>
+
+</ul>
+</li>
+<li><a href="forums">Forum</a></li>
+<li><a href="about">About </a></li>
+<li><a href="#footer">Contacts</a></li>
+<%if user_signed_in? %>
+<li><%= link_to "Sign-Out", destroy_user_session_path, method: :delete %></li>
+<% else %>
+<li><%= link_to "Sign-In", new_user_session_path,method: :get %></li>
+<li><%= link_to "Sign-Up", new_user_registration_path,method: :get %></li>
+<% end %>
+</ul>
+<form class="navbar-form navbar-left">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Search">
+</div>
+<button type="submit" class="btn btn-default">Search</button>
+</form>
+</div>
+</nav>
+
+<% unless flash.empty? %>
+<script type="text/javascript">
+<% flash.each do |f| %>
+  <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+  toastr['<%= type %>']('<%= f[1] %>');
+<% end %>
+</script>
+<% end %>
+
+<%= yield %>
+
+
+<footer id="footer">
+<div class="container">
+<div>
+
+<form class="form-inline">
+<div class="form-group">
+<label for="exampleInputEmail">To subscribe,Enter your E-mail and hit the subscribe button.</label>
+<input type="email" class="form-control" id="exampleInputEmail" placeholder="naajib38@example.com">
+</div>
+<button type="submit" class="btn btn-success">Subscribe </button>
+</form>
+</div>
+<!-- social media icons -->
+<div class="container center-items">
+<div class="social center-items">
+<i class="fa fa-twitter"></i>
+</div>
+<div class="social center-items">
+<i class="fa fa-facebook"></i>
+</div>
+<div class="social center-items">
+<i class="fa fa-instagram"></i>
+</div>
+</div>
+
+<p id="finale">&copy; 2017 Ne0ncode blog</p>
+</footer>
+</body>
+</html>
