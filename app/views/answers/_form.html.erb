@@ -1,0 +1,19 @@
+<%= form_for [@question, @answer], remote: true do |f| %>
+
+  <div class="field">
+  <%= f.hidden_field :question_id, value: params[:qustion_id] %>
+  </div>
+
+  <div class="field">
+  <%= f.label :answer %>
+  <%= f.text_area :answer %>
+  </div>
+  <div class="field">
+  <%= f.label :tag %>
+  <%= f.text_field :tag, id: :answer_tag %>
+  </div>
+
+  <div class="actions">
+  <%= f.submit %>
+  </div>
+<% end %>

@@ -10,7 +10,22 @@
 <%= @question.tag %>
 </p>
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
+
+<h4>Answers</h4>
+<div class="answers">
+<% if @question.answers.any? %>
+<div id="answers">
+<% @answers.each do |answer|%>
+  <li><strong><%= answer.answer %>:-</strong>
+  <%= answer.tag %></li>
+  <%end%>
+  </div>
+  <% else %>
+  <p>No Answers yet!</p>
+<% end %>
+<%= link_to 'Add Answers', new_question_answer_path(@question) %>
+</div>
+<%#= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
 
 <hr>
