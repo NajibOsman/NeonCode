@@ -41,6 +41,9 @@ gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin'
 gem 'cancancan'
 gem 'font-awesome-sass'
+gem 'mail_form'
+gem 'simple_form'
+gem "omnicontacts"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
